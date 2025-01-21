@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sports",
+  "info": {
+    "singularName": "sport",
+    "pluralName": "sports",
+    "displayName": "sport",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "federation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::federation.federation",
+      "inversedBy": "sports"
+    },
+    "disciplines": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::discipline.discipline",
+      "mappedBy": "sport"
+    },
+    "facilities": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::facility.facility",
+      "mappedBy": "sports"
+    },
+    "athletes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::athlete.athlete",
+      "mappedBy": "sport"
+    },
+    "competitions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::competition.competition",
+      "mappedBy": "sport"
+    },
+    "coaches": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::coach.coach",
+      "mappedBy": "sport"
+    },
+    "journalists": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::journalist.journalist",
+      "mappedBy": "sports"
+    }
+  }
+}

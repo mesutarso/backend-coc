@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "disciplines",
+  "info": {
+    "singularName": "discipline",
+    "pluralName": "disciplines",
+    "displayName": "discipline"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "sport": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sport.sport",
+      "inversedBy": "disciplines"
+    },
+    "competitions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::competition.competition",
+      "mappedBy": "discipline"
+    }
+  }
+}

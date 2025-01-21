@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "coaches",
+  "info": {
+    "singularName": "coach",
+    "pluralName": "coaches",
+    "displayName": "coach",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nom": {
+      "type": "string"
+    },
+    "postNom": {
+      "type": "string"
+    },
+    "prenom": {
+      "type": "string"
+    },
+    "photo": {
+      "type": "string"
+    },
+    "adresse": {
+      "type": "string"
+    },
+    "birthday": {
+      "type": "date"
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "homme",
+        "femme"
+      ]
+    },
+    "matricule": {
+      "type": "string",
+      "unique": true
+    },
+    "athletes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::athlete.athlete",
+      "mappedBy": "coach"
+    },
+    "sport": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sport.sport",
+      "inversedBy": "coaches"
+    },
+    "competitions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::competition.competition",
+      "inversedBy": "coaches"
+    },
+    "nationality": {
+      "type": "string"
+    }
+  }
+}

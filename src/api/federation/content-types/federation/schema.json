@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "federations",
+  "info": {
+    "singularName": "federation",
+    "pluralName": "federations",
+    "displayName": "federation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "sports": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sport.sport",
+      "mappedBy": "federation"
+    },
+    "officials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::official.official",
+      "mappedBy": "federation"
+    }
+  }
+}

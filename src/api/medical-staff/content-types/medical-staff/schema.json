@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "medical_staffs",
+  "info": {
+    "singularName": "medical-staff",
+    "pluralName": "medical-staffs",
+    "displayName": "medical-staff",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nom": {
+      "type": "string"
+    },
+    "postNom": {
+      "type": "string"
+    },
+    "prenom": {
+      "type": "string"
+    },
+    "adresse": {
+      "type": "string"
+    },
+    "matricule": {
+      "type": "string",
+      "unique": true
+    },
+    "email": {
+      "type": "email",
+      "default": "no@email.com"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "birthday": {
+      "type": "date"
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "homme",
+        "femme"
+      ]
+    },
+    "specialization": {
+      "type": "string"
+    },
+    "competitions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::competition.competition",
+      "inversedBy": "medical_staffs"
+    }
+  }
+}

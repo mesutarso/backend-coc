@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "competitions",
+  "info": {
+    "singularName": "competition",
+    "pluralName": "competitions",
+    "displayName": "competition",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    },
+    "facilities": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::facility.facility",
+      "inversedBy": "competitions"
+    },
+    "sport": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sport.sport",
+      "inversedBy": "competitions"
+    },
+    "athletes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::athlete.athlete",
+      "inversedBy": "competitions"
+    },
+    "discipline": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::discipline.discipline",
+      "inversedBy": "competitions"
+    },
+    "officials": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::official.official",
+      "mappedBy": "competitions"
+    },
+    "coaches": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::coach.coach",
+      "mappedBy": "competitions"
+    },
+    "medical_staffs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::medical-staff.medical-staff",
+      "mappedBy": "competitions"
+    },
+    "journalists": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::journalist.journalist",
+      "mappedBy": "competitions"
+    },
+    "achievements": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::achievement.achievement",
+      "mappedBy": "competition"
+    }
+  }
+}

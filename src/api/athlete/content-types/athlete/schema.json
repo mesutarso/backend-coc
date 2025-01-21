@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "athletes",
+  "info": {
+    "singularName": "athlete",
+    "pluralName": "athletes",
+    "displayName": "athlete"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nom": {
+      "type": "string"
+    },
+    "postNom": {
+      "type": "string"
+    },
+    "prenom": {
+      "type": "string"
+    },
+    "adresse": {
+      "type": "text"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email",
+      "default": "no@email.com"
+    },
+    "birthday": {
+      "type": "date"
+    },
+    "photo": {
+      "type": "text"
+    },
+    "matricule": {
+      "type": "string"
+    },
+    "nationality": {
+      "type": "string",
+      "default": "congolaise"
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "homme",
+        "femme"
+      ]
+    },
+    "sport": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sport.sport",
+      "inversedBy": "athletes"
+    },
+    "competitions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::competition.competition",
+      "mappedBy": "athletes"
+    },
+    "coach": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::coach.coach",
+      "inversedBy": "athletes"
+    },
+    "achievements": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::achievement.achievement",
+      "mappedBy": "athlete"
+    }
+  }
+}

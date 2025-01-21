@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "officials",
+  "info": {
+    "singularName": "official",
+    "pluralName": "officials",
+    "displayName": "official",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "position": {
+      "type": "string"
+    },
+    "federation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::federation.federation",
+      "inversedBy": "officials"
+    },
+    "competitions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::competition.competition",
+      "inversedBy": "officials"
+    },
+    "nom": {
+      "type": "string"
+    },
+    "postNom": {
+      "type": "string"
+    },
+    "prenom": {
+      "type": "string"
+    },
+    "birthday": {
+      "type": "date"
+    },
+    "adresse": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "default": "no@email.com"
+    }
+  }
+}

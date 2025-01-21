@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "journalists",
+  "info": {
+    "singularName": "journalist",
+    "pluralName": "journalists",
+    "displayName": "journalist",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nom": {
+      "type": "string"
+    },
+    "postNom": {
+      "type": "string"
+    },
+    "prenom": {
+      "type": "string"
+    },
+    "adresse": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "birthday": {
+      "type": "date"
+    },
+    "email": {
+      "type": "email",
+      "default": "no@email.com"
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "homme",
+        "femme"
+      ]
+    },
+    "matricule": {
+      "type": "string",
+      "required": true
+    },
+    "mediaOutlet": {
+      "type": "string"
+    },
+    "specialty": {
+      "type": "string"
+    },
+    "competitions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::competition.competition",
+      "inversedBy": "journalists"
+    },
+    "sports": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::sport.sport",
+      "inversedBy": "journalists"
+    }
+  }
+}
